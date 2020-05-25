@@ -19,7 +19,7 @@ export class App {
     }
 
     private middlewares(): void {
-
+        this.app.use(express.json());
     }
 
     private routs(): void {

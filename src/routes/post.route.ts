@@ -1,8 +1,21 @@
 import { Router } from 'express';
-import {getPosts} from '../controllers/post.controller';
+import {
+    getAllPosts,
+    createPost,
+    getPostById,
+    deletePostById,
+    updateById
+                } from '../controllers/post.controller';
 
 const router = Router();
 
-router.route('/').get(getPosts)
+router.route('/')
+    .get(getAllPosts)
+    .post(createPost);
+
+router.route('/:postId')
+    .get(getPostById)
+    .delete(deletePostById)
+    .put(updateById);
 
 export default router;
